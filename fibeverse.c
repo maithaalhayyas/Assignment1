@@ -4,17 +4,20 @@
 #include "reverse.h"
 
 int main(int argc, char *argv[]) {
-	int i = 1;
+    int i = 1;
+  #ifdef fibonacci
+    if (i < argc) {
+        print_fib(atoi(argv[i]));
+        i++;
+    }
+  #endif
+   
+  #ifdef reverse
+    if (i < argc) {
+        reverse(argv[i], strlen(argv[i]));
+        i++;
+    }
+  #endif
 
-	if (i < argc) {
-		print_fib(atoi(argv[i]));
-		i++;
-	}
-
-	if (i < argc) {
-		reverse(argv[i], strlen(argv[i]));
-		i++;
-	}
-
-	return 0;
+    return 0;
 }
